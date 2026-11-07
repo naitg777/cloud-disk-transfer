@@ -1,0 +1,27 @@
+[Unit]
+Description=Telegram Aria2 & Drive Bot
+After=network-online.target docker.service
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=simple
+User=tgbot
+Group=tgbot
+WorkingDirectory=/data
+EnvironmentFile=/etc/tgbot.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/data/venv/bin/python3 /opt/cloud-disk-transfer/tgbot.py
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+ReadWritePaths=/data/tg_downloads
+
+[Install]
+WantedBy=multi-user.target

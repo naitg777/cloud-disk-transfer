@@ -1,0 +1,7 @@
+[Unit]
+Description=Daily health check for tgbot
+After=network-online.target tgbot.service
+
+[Service]
+Type=oneshot
+ExecStart=/data/venv/bin/python3 /opt/cloud-disk-transfer/healthcheck.py --notify

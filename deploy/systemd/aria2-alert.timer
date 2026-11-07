@@ -1,0 +1,10 @@
+[Unit]
+Description=Check aria2 upload failures every 5 minutes
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=5min
+Unit=aria2-alert.service
+
+[Install]
+WantedBy=timers.target

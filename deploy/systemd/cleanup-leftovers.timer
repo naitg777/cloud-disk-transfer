@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily cleanup of leftover downloads
+
+[Timer]
+OnCalendar=*-*-* 04:40:00
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

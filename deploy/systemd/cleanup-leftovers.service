@@ -1,0 +1,9 @@
+[Unit]
+Description=Clean stale leftover downloads (tgbot / gopeed)
+After=network.target
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/bin/python3 /opt/cloud-disk-transfer/cleanup_leftovers.py --notify
+TimeoutStartSec=600

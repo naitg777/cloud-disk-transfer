@@ -1,0 +1,8 @@
+[Unit]
+Description=aria2 upload failure alert
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/cloud-disk-transfer/send-alert.sh
